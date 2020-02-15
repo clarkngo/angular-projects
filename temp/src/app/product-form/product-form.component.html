@@ -1,0 +1,20 @@
+<main class="product-form-container">
+  <h2 *ngIf="bookId; else hide">
+    Update the product information
+  </h2>
+  <ng-template #hide>
+    <h2>Add a new product</h2>
+  </ng-template>
+  <div class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Product name" type="text" [(ngModel)]="name" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Quantity" type="text" [(ngModel)]="quantity" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Price" type="text" [(ngModel)]="price" required />
+    </mat-form-field>
+    <button mat-raised-button (click)="handleSave()">Save</button>
+  </div>
+</main>

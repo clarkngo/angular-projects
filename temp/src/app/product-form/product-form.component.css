@@ -1,0 +1,15 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.form-container > * {
+  width: 100%
+}
+
+.product-form-container {
+  width: 50px;
+  margin: 50px auto;
+  min-width: 300px;
+}
