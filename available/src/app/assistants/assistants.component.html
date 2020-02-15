@@ -1,0 +1,13 @@
+<table>
+  <thead>
+    <th scope="col">Name</th>
+    <th scope="col">Availability</th>
+  </thead>
+  <tr *ngFor="let assistant of assistants">
+    <td>{{assistant.name}}</td>
+    <td><button [ngClass]="{
+      'btn btn-danger': assistant.avalability,
+      'btn btn-success': !assistant.availability}"
+      (click)="onClick()">{{assistant.isAvailable ? 'Available': 'Unavailable'}}</button></td>
+  </tr>
+</table>
