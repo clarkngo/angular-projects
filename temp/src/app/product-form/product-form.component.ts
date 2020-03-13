@@ -9,10 +9,10 @@ import { ApiService } from '../api.service';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-  private productId: string;
-  private name: string = '';
-  private quantity: number = 0;
-  private price: number = 0;
+  public productId: string;
+  public name: string = '';
+  public quantity: number = 0;
+  public price: number = 0;
 
   constructor(
     private route: ActivatedRoute,

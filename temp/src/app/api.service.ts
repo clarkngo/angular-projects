@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  private ADD_NEW_PRODUCT_API = 'http://localhost:8080/book';
+  private ADD_NEW_PRODUCT_API = 'http://localhost:8080/product';
 
   constructor(private httpClient: HttpClient) { }
 

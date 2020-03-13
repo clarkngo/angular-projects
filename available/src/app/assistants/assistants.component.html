@@ -5,9 +5,10 @@
   </thead>
   <tr *ngFor="let assistant of assistants">
     <td>{{assistant.name}}</td>
-    <td><button [ngClass]="{
-      'btn btn-danger': assistant.avalability,
-      'btn btn-success': !assistant.availability}"
-      (click)="onClick()">{{assistant.isAvailable ? 'Available': 'Unavailable'}}</button></td>
+    <td *ngIf="assistant.isAvailable"><button mat-raised-button color="primary">Available</button></td>
+    <td *ngIf="!assistant.isAvailable"><button mat-raised-button color="warn">Not Available</button></td>
+
+    <td><button [ngClass]="{'test': newColor}" (click)="toggleColor()" mat-raised-button color="primary">Available</button></td>
+
   </tr>
 </table>
