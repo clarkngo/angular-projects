@@ -1,4 +1,4 @@
-# Project Setup with Material Angular
+# News Project Setup with Material Angular
 
 Build the Angular Project
 ```
@@ -18,7 +18,9 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatSidenavModule,
+  MatListModule,
 } from '@angular/material';
 
 @NgModule({
@@ -27,14 +29,18 @@ import {
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   exports: [
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatListModule,
   ]
 })
 export class MaterialModule {}
@@ -92,4 +98,33 @@ Update your `app.component.html`
 Generating new components
 ```
 ng generate component componentName --module=app.module
+```
+
+Create a service provider
+```
+ng generate service news-api
+```
+Add code to `news-api.service.ts`
+```
+import { Injectable } from '@angular/core';
+import { HttpClient  } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class NewsApiService {
+
+  api_key = 'PUT_YOUR_API_KEY_HERE';
+
+  constructor(private http:HttpClient) { }
+  initSources(){
+     return this.http.get('https://newsapi.org/v2/sources?language=en&apiKey='+this.api_key);
+  }
+  initArticles(){
+   return this.http.get('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey='+this.api_key);
+  }
+  getArticlesByID(source: String){
+   return this.http.get('https://newsapi.org/v2/top-headlines?sources='+source+'&apiKey='+this.api_key);
+  }
+}
 ```
