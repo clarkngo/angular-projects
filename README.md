@@ -9,6 +9,13 @@ npm install @angular/animation@6.0.0
 ng add @angular/material
 ```
 
+If above is not working, use Angular 5 version:
+```
+"@angular/core": "^5.2.0",
+"@angular/cdk": "^5.2.0",
+"@angular/material": "^5.2.0"
+```
+
 Create a  `material.module.ts` file in `app`
 ```
 import { NgModule } from '@angular/core';
